@@ -1,6 +1,6 @@
 module.exports = {
     title: 'Webxander HTML Docs',
-    base: 'HTML',
+    base: '/HTML/',
     description: 'Generate HTML code easily with PHP',
     head: [
         ['link', { rel: 'stylesheet', href: 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' }]
