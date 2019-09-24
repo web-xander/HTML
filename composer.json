@@ -1,0 +1,30 @@
+{
+    "name": "webxander/html",
+    "description": "Creaci\u0000n de c\u0000digo HTML facilmente con PHP",
+    "type": "library",
+    "require-dev": {
+        "phpunit/phpunit": "^8.3",
+        "phpspec/phpspec": "^5.1"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alejandro Cayssials",
+            "email": "info@webxander.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Webxander\\": "src/",
+            "Webxander\\Tests\\": "tests/"
+        }
+    },
+    "autoload-dev": {
+        "classmap": [
+            "tests/"
+        ]
+    },
+    "require": {
+        "php-di/php-di": "^6.0"
+    }
+}
