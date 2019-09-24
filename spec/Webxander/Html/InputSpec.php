@@ -13,4 +13,10 @@ class InputSpec extends ObjectBehavior
         $this->text('foo', 'Webxander')
             ->shouldReturn("<input type='text' name='foo' placeholder='Webxander'/>");
     }
+
+    function it_input_type_checkbox()
+    {
+        $this->checkbox('foo', 'Webxander')
+            ->shouldReturn("<input type='checkbox' name='foo' placeholder='Webxander'/>");
+    }
 }

@@ -6,36 +6,36 @@ use InvalidArgumentException;
 
 class Html
 {
-    protected $attributes = '';
+  protected $attributes = '';
 
-    protected $inputTypes = [
-        "button",
-        "checkbox",
-        "color",
-        "date",
-        "datetime-local",
-        "email",
-        "file",
-        "hidden",
-        "image",
-        "month",
-        "number",
-        "password",
-        "radio",
-        "range",
-        "reset",
-        "search",
-        "submit",
-        "tel",
-        "text",
-        "time",
-        "url",
-        "week"
-      ];
+  protected $inputTypes = [
+    "button",
+    "checkbox",
+    "color",
+    "date",
+    "datetime-local",
+    "email",
+    "file",
+    "hidden",
+    "image",
+    "month",
+    "number",
+    "password",
+    "radio",
+    "range",
+    "reset",
+    "search",
+    "submit",
+    "tel",
+    "text",
+    "time",
+    "url",
+    "week"
+  ];
 
-    public function link($url, $name = null, $attrs = array())
+  public function link($url, $name = null, $attrs = array())
   {
-      
+
     $name = $name ?? $url;
 
     $this->attributes = $this->parseAttributes($attrs);
@@ -46,13 +46,13 @@ class Html
   public function input($type, $placeholder = null, $attrs = array())
   {
 
-    if (!in_array($type,$this->inputTypes))
+    if (!in_array($type, $this->inputTypes))
       throw new InvalidArgumentException('Input type incorrect.');
 
     $this->attributes = $this->parseAttributes($attrs);
 
     $placeholderInput = '';
-    if($placeholder){
+    if ($placeholder) {
       $placeholderInput = " placeholder='$placeholder'";
     }
 
@@ -80,12 +80,22 @@ class Html
     return "<select name='$name'$this->attributes>$parseOptions</select>";
   }
 
-    protected function parseAttributes($attrs = array())
-    {
-        foreach ($attrs as $key => $value) {
-        $this->attributes .= " $key='$value'";
-        }
+  public function build($tag, $attrs, $tag_open = true)
+  {
+    if (!$tag_open)
+      return "</$tag>";
 
-        return $this->attributes;
+    $this->attributes = trim($this->parseAttributes($attrs));
+
+    return "<$tag $this->attributes>";
+  }
+
+  protected function parseAttributes($attrs = array())
+  {
+    foreach ($attrs as $key => $value) {
+      $this->attributes .= " $key='$value'";
     }
+
+    return $this->attributes;
+  }
 }

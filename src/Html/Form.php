@@ -6,21 +6,21 @@ use InvalidArgumentException;
 
 class Form extends Html
 {
-    protected $formMethods = ['GET', 'POST', 'PUT', 'PATH', 'DELETE'];
+  protected $formMethods = ['GET', 'POST', 'PUT', 'PATH', 'DELETE'];
 
-    public function open($action, $method = 'GET', $attrs = array())
-    {
+  public function open($action, $method = 'GET', $attrs = array())
+  {
 
-    if (!in_array($method,$this->formMethods))
+    if (!in_array($method, $this->formMethods))
       throw new InvalidArgumentException('Method not found.');
 
-    $attributes = $this->parseAttributes($attrs);
+    $attrs = array('action' => $action, 'method' => $method) + $attrs;
 
-    return "<form action='$action' method='$method'$attributes>";
-    }
+    return $this->build('form', $attrs, true);
+  }
 
-    public function close()
-    {
-        return "</form>";
-    }
+  public function close()
+  {
+    return $this->build('form', null, false);
+  }
 }
