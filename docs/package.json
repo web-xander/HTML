@@ -1,0 +1,19 @@
+{
+  "name": "webxander-html-docs",
+  "version": "1.0.0",
+  "description": "Generate HTML code easily with PHP",
+  "main": "index.js",
+  "repository": "https://github.com/web-xander/HTML",
+  "author": "Alejandro Cayssials",
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.1.0"
+  },
+  "scripts": {
+    "docs:dev": "vuepress dev",
+    "docs:build": "vuepress build"
+  },
+  "dependencies": {
+    "bootstrap": "^4.3.1"
+  }
+}

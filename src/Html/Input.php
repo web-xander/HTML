@@ -4,12 +4,30 @@ namespace Webxander\Html;
 
 class Input extends Html
 {
-    public function text($name, $placeholder = null, $attrs = array())
-    {
-        $attrs = ['name' => $name];
-
-        return $this->input('text', $placeholder, $attrs);
-    }
+    protected $inputTypes = [
+        "button",
+        "checkbox",
+        "color",
+        "date",
+        "datetime-local",
+        "email",
+        "file",
+        "hidden",
+        "image",
+        "month",
+        "number",
+        "password",
+        "radio",
+        "range",
+        "reset",
+        "search",
+        "submit",
+        "tel",
+        "text",
+        "time",
+        "url",
+        "week"
+    ];
 
     public function __call(string $name , array $arguments):string
     {
